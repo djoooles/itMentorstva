@@ -2,7 +2,7 @@
 
     class Baza
     {
-        public $sql;
+        protected $sql;
 
         public function __construct()
         {
