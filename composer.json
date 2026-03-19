@@ -1,0 +1,15 @@
+{
+    "name": "pc/it-mentorstva",
+    "autoload": {
+        "psr-4": {
+            "PHP28\\ItMentorstva\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Djordje Stojkovic",
+            "email": "djole8793@gmail.com"
+        }
+    ],
+    "require": {}
+}

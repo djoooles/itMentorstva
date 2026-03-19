@@ -37,5 +37,6 @@
 
     $airBus = new Vozilo();
     $airBus->padobran = true;
+    $airBus->pogon = "mlaznjak";
 
     echo $airBus->padobran;

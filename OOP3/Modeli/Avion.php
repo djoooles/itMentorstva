@@ -6,4 +6,5 @@
         public $brojTockova;
         public $padobran;
         public $brojSedista;
+        public $pogon;
     }
