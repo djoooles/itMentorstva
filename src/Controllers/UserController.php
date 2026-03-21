@@ -4,6 +4,7 @@ namespace PHP28\Controllers;
 
 use mysql_xdevapi\Session;
 use PHP28\Models\User;
+use PHP28\Services\MailService;
 use PHP28\Services\SessionService;
 
 class UserController extends SessionService {
@@ -54,6 +55,9 @@ class UserController extends SessionService {
 
         $userModel = new User();
         $userModel->addNewUser($data['username'], $password);
+
+        $mailService = new MailService();
+        $mailService->sendMail("Registracija Uspesna!", "Dobrodosli na nasu platformu!.");
     }
 
 
