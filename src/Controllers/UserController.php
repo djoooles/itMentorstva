@@ -2,9 +2,11 @@
 
 namespace PHP28\Controllers;
 
+use mysql_xdevapi\Session;
 use PHP28\Models\User;
+use PHP28\Services\SessionService;
 
-class UserController {
+class UserController extends SessionService {
     public function login(array $data)
     {
         if (!isset($data['username']) || empty($data['username'])) {

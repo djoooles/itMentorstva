@@ -10,4 +10,12 @@
                 session_start();
             }
         }
+        public function getFromSession(string $key): mixed
+        {
+            return $_SESSION[$key];
+        }
+        public function setSession(string $key, mixed $value): void
+        {
+            $_SESSION[$key] = $value;
+        }
     }
