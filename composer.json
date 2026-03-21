@@ -2,7 +2,7 @@
     "name": "pc/it-mentorstva",
     "autoload": {
         "psr-4": {
-            "PHP28\\ItMentorstva\\": "src/"
+            "PHP28\\": "src/"
         }
     },
     "authors": [

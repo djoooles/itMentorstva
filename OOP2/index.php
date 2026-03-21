@@ -1,6 +1,8 @@
 <?php
 
-    require_once "models/User.php";
+use PHP28\ItMentorstva\User;
+
+require_once "models/User.php";
 
     $korisnikDjole = new User("123@123.com", "123321");
     $korisnikDjole->save();
