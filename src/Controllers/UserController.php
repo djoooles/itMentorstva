@@ -7,7 +7,7 @@ use PHP28\Models\User;
 use PHP28\Services\SessionService;
 
 class UserController extends SessionService {
-    public function login(array $data)
+    public function login(array $data): void
     {
         if (!isset($data['username']) || empty($data['username'])) {
             die("You must enter a username");
@@ -18,21 +18,45 @@ class UserController extends SessionService {
         }
 
         $userModel = new User();
-        if(!$userModel->getUserByUsername($data['username'])) {
+        if (!$userModel->getUserByUsername($data['username'])) {
             die("Username not exists");
         }
         $user = $userModel->getUserByUsername($data['username']);
 
-        if($user['password'] !== $data['password']) {
+        if (!password_verify($data['password'], $user['password'])) {
             die("Wrong password");
         }
 
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['loggedIn'] = true;
+        $this->setSession('user_id', $user['id'])
+            ->setSession('logged_in', true);
+    }
 
-        echo "Welcome " . $user['username'];
+    public function register(array $data): void
+    {
+        if (!isset($data['username']) || empty($data['username'])) {
+            die("You must enter a username");
+        }
+
+        $userModel = new User();
+        if($userModel->userExists($data['username'])){
+            die("Username already exists");
+        }
+        if (!isset($data['password']) || !isset($data['confirm_password'])) {
+            die("You must enter a password");
+        }
+
+        if($data['password'] !== $data['confirm_password']) {
+            die("Passwords do not match");
+        }
+
+        $password = password_hash($data['password'], PASSWORD_DEFAULT);
+
+
+        $userModel = new User();
+        $userModel->addNewUser($data['username'], $password);
+    }
+
 
 
 
     }
-}

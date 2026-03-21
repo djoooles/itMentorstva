@@ -110,6 +110,10 @@
 
         <button type="submit" class="login-btn">Sign In</button>
 
+        <div class="extra">
+            <a href="register.php">Sing In</a>
+        </div>
+
     </form>
 </div>
 

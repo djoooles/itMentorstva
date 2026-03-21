@@ -14,8 +14,9 @@
         {
             return $_SESSION[$key];
         }
-        public function setSession(string $key, mixed $value): void
+        public function setSession(string $key, mixed $value): self
         {
             $_SESSION[$key] = $value;
+            return $this;
         }
     }

@@ -13,3 +13,7 @@
             $userController = new UserController();
             $userController->login($_POST);
         }
+        if(isset($_POST['register'])){
+            $userController = new UserController();
+            $userController->register($_POST);
+        }
